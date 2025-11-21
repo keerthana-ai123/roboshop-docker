@@ -1,5 +1,5 @@
 FROM node:20
-WORKDIR /opt/server
+WORKDIR /opt/server/server.js
 EXPOSE 8080
 COPY package.json .
 COPY *.js .
@@ -9,4 +9,3 @@ ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/users"
 CMD ["node", "server.js"]
 
-# test
