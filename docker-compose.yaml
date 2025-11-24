@@ -1,27 +1,12 @@
 services:
-   mongodb:
-     image: mongodb:v1
-     container_name: mongodb
-networks:
-  default:
-    driver: bridge
-    name: roboshop
-    external: false 
-
-
-
-
-
-
-# services:
-#   catalogue:
-#     image: catalogue:v1
-#     container_name: catalogue
-#     depends_on:
-#     - mongodb
-#   mongodb:
-#     image: mongodb:v1
-#     container_name: mongodb
+  catalogue:
+    image: catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
 #     volumes:
 #     - mongodb:/data/db
 #   redis:
@@ -78,11 +63,11 @@ networks:
 #     - cart
 #     - shipping
 #     - payment
-# networks:
-#   default:
-#     driver: bridge
-#     name: roboshop
-#     external: false # true if you have created network manually using docker network command
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: false # true if you have created network manually using docker network command
 # volumes:
 #   mongodb: # docker volume create mongodb. /var/lib/docker/volumes
 #   redis:
